@@ -39,12 +39,23 @@ const Login = ({setLoginUser}) => {
       
       if(email && password)
       {
+
         // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
           axios.post("http://localhost:8000/login",user)
           .then(res=>{
             alert(res.data.message)
-            setLoginUser(res.data.user) 
-            history.push("/")
+            setLoginUser(res.data.user)
+            if(res.data.desig==="deliveryadmin")
+            {
+              
+              history.push("/register")
+            }
+            else{
+              history.push("/login")
+            }
+             
+            
+            
           })
           //history.push("/") is used to redirect to homepage after successfull login of the user in login page
 
