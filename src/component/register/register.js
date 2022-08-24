@@ -9,7 +9,8 @@ const Register = () => {
         name: "",
         email:"",
         password:"",
-        reEnterPassword: ""
+        reEnterPassword: "",
+        designation:""
     })
 
     const handleChange = e => {
@@ -26,7 +27,8 @@ const Register = () => {
             axios.post("http://localhost:8000/register", user)
             .then( res => {
                 alert(res.data.message)
-                // history.push("/login")
+                // setLoginUser1(res.data.user)
+                history.push("/login")
             })
         } else {
             alert("invlid input")
@@ -43,8 +45,11 @@ const Register = () => {
                     <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={ handleChange }></input>
                     <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input>
                     <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
-                    {/* <input type="checkbox" name="designation" value={user.designation} onChange={ handleChange }>Inventory Admin</input>
-                    <input type="checkbox" name="designation" value={user.designation} onChange={ handleChange }>Delivery Admin</input> */}
+                    
+                    <label>Inventory Admin :</label>
+                    <input type="radio" name="designation" value="inventoryadmin" onChange={ handleChange }></input>
+                    <label>Delivery Admin :</label>
+                    <input type="radio" name="designation" value="deliveryadmin" onChange={ handleChange }></input>
 
 
                     <div className="button" onClick={register} >Register</div>

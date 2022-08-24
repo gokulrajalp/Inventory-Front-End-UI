@@ -21,7 +21,7 @@ function App() {
           <Route exact path='/'>
             
             {
-              user && user._id ?<Homepage />:<Login />
+              user && user._id ?<Homepage />:<Login setLoginUser={setLoginUser}/>
             }
             
           </Route>
