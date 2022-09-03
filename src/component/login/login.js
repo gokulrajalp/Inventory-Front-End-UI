@@ -36,7 +36,6 @@ const Login = ({setLoginUser}) => {
       const{email,password}=user
 
       // checking the condition if both email and password exists
-      
       if(email && password)
       {
 
@@ -44,14 +43,15 @@ const Login = ({setLoginUser}) => {
           axios.post("http://localhost:8000/login",user)
           .then(res=>{
             alert(res.data.message)
+            console.log("*******",res.data)
             setLoginUser(res.data.user)
-            if(res.data.desig==="deliveryadmin")
+            if(res.data.user.designation==="inventoryadmin")
             {
               
-              history.push("/register")
+              history.push("/inventory")
             }
             else{
-              history.push("/login")
+              history.push("/register")
             }
              
             
@@ -84,3 +84,8 @@ const Login = ({setLoginUser}) => {
 };
 
 export default Login;
+
+
+
+
+

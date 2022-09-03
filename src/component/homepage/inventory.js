@@ -1,14 +1,14 @@
 import React from "react";
-import "./homepage.css";
+import "./inventory.css";
 
-const Homepage=()=>{
+const Inventory=()=>{
     return(
-        <div className="homepage">
+        <div className="inventory-homepage">
             <h1>Hello Homepage</h1>
             <div className="button">Logout</div>
         </div>
     )
 }
 
-export default Homepage;
+export default Inventory;
 
