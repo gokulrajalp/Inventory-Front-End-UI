@@ -1,9 +1,19 @@
-import React, { useState } from "react"
+import React, { useEffect,useState } from "react"
 import "./register.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom";
 const Register = () => {
 
+    useEffect(()=>{
+        if(localStorage.getItem('myData'))
+        {
+          history.push("/inventory");
+        }
+        else
+        {
+            history.push("/login");
+        }
+      },[])
     const history=useHistory();
     const [ user, setUser] = useState({
         name: "",
