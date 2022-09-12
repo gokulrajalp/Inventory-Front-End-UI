@@ -1,19 +1,14 @@
 import React, { useEffect,useState } from "react"
+import { ErrorMessage, useFormik } from "formik"
+import * as yup from 'yup'
 import "./register.css"
 import axios from "axios"
+
 import { useHistory } from "react-router-dom";
+import { Field, Form, Formik } from "formik";
+
 const Register = () => {
 
-    useEffect(()=>{
-        if(localStorage.getItem('myData'))
-        {
-          history.push("/inventory");
-        }
-        else
-        {
-            history.push("/login");
-        }
-      },[])
     const history=useHistory();
     const [ user, setUser] = useState({
         name: "",
@@ -23,18 +18,33 @@ const Register = () => {
         designation:""
     })
 
-    const handleChange = e => {
-        const { name, value } = e.target
-        setUser({
-            ...user,
-            [name]: value
-        })
+    // const handleChange = e => {
+    //     console.log("handlechange fired ......********")
+    //     const { name, value } = e.target
+    //     setUser({
+    //         ...user,
+    //         [name]: value
+    //     })
+    // }
+
+    
+
+
+    const initialValues={
+        
+            name:'',
+            email:'',
+            password:'',
+            reEnterPassword:''
     }
 
-    const register = () => {
-        const { name, email, password, reEnterPassword } = user
+    const handleSubmit=(values)=>{
+
+        console.log("form values : ",values)
+
+        const { name, email, password, reEnterPassword } = values
         if( name && email && password && (password === reEnterPassword)){
-            axios.post("http://localhost:8000/register", user)
+            axios.post("http://localhost:8000/register", values)
             .then( res => {
                 alert(res.data.message)
                 // setLoginUser1(res.data.user)
@@ -43,29 +53,57 @@ const Register = () => {
         } else {
             alert("invlid input")
         }
-        
     }
 
+    const validationSchema=yup.object({
+        name:yup.string().required('Name is Required').max(6,'Should be 4 char'),
+        email:yup.string().required('Email is Required'),
+        password:yup.string().required('Please enter the password'),
+        reEnterPassword:yup.string().required('Please Re-enter the password')
+    })
+
+    
+
     return (
-        <div className="register">
-            {console.log("User", user)}
-            <h1>Register</h1>
-           
-                    <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input>
-                    <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={ handleChange }></input>
-                    <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input>
-                    <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
-                    
-                    <label>Inventory Admin :</label>
-                    <input type="radio" name="designation" value="inventoryadmin" onChange={ handleChange }></input>
-                    <label>Delivery Admin :</label>
-                    <input type="radio" name="designation" value="deliveryadmin" onChange={ handleChange }></input>
 
+        <Formik initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+            
+        
+        >
+            <Form>
+                <div className="register">
+                        {/* {console.log("User", user)} */}
+                        <h1>Register</h1>
+                        
+                                <Field className="Field" type="text" name="name" placeholder="Your Name" ></Field>
+                                <ErrorMessage className='error' name="name"/>
+                                
+                                <Field className="Field" type="text" name="email" placeholder="Your Email" ></Field>
+                                <ErrorMessage className='error' name="email"/>
 
-                    <div className="button" onClick={register} >Register</div>
-                    <div>or</div>
-                    <div className="button" onClick={() => history.push("/login")}>Login</div>
-        </div>
+                                <Field className="Field" type="password" name="password" placeholder="Your Password" ></Field>
+                                <ErrorMessage className='error' name="password"/>
+
+                                <Field className="Field" type="password" name="reEnterPassword" placeholder="Re-enter Password" ></Field>
+                                <ErrorMessage className='error' name="reEnterPassword"/> <br></br><br></br>
+                                 
+                                <label>Inventory Admin :</label>
+                                <Field className="Field" type="radio" name="designation" value="inventoryadmin" ></Field>
+                                <label>Delivery Admin :</label>
+                                <Field className="Field" type="radio" name="designation" value="deliveryadmin" ></Field>
+            
+                                <button className="button" type="submit"  >Register </button>
+                                <div>or</div>
+
+                                <button className="button" type="cancel" onClick={() => history.push("/login")}>Login</button>
+                                
+                </div>
+            </Form>   
+
+        </Formik>
+        
 
     )
 }

@@ -26,7 +26,7 @@ function App() {
           <Route exact path='/'>
             
             {
-              localStorage.getItem('myData') ?<Inventory setLoginUser={setLoginUser} />:<Login setLoginUser={setLoginUser}/>
+              <Login setLoginUser={setLoginUser}/>
             }
             
           </Route>
@@ -34,7 +34,7 @@ function App() {
           <Route path='/login'>
 
             {
-              localStorage.getItem('myData') ?<Inventory setLoginUser={setLoginUser} />:<Login setLoginUser={setLoginUser}/>
+              <Login setLoginUser={setLoginUser}/>
             }
 
           </Route>

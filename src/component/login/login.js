@@ -1,53 +1,49 @@
 import React,{useState,useEffect} from "react";
+import { ErrorMessage, useFormik } from "formik"
+import * as yup from 'yup'
 import "./login.css";
 import axios from "axios"
 import { useHistory } from "react-router-dom";
+import { Field, Form,Formik } from "formik";
 
 
 const Login = ({setLoginUser}) => {
 
-
-  // useEffect(()=>{
-  //   if(localStorage.getItem('myData'))
-  //   {
-  //     history.push("/inventory");
-  //   }
-  // },[])
-  //Declare the history object  
+ 
   const history=useHistory();
-  // user variable is maintained as to store the user and setUser will update any change in the user object
   
-  const[user,setUser]=useState({
-    email:"",
-    password:""
-  })
 
-  // handlechange func. will be called every time whenever there is any change in the input field in the UI
-  const handleChange = e =>{
+  // // handlechange func. will be called every time whenever there is any change in the input field in the UI
+  // const handleChange = e =>{
 
     // e.target came up with the change reflected and {name,value} means we are extracting the value from e.target and upating the user witht the change
     
-    const {name,value} = e.target
-    setUser({
-      ...user,
-      [name]:value
-    })  
+  //   const {name,value} = e.target
+  //   setUser({
+  //     ...user,
+  //     [name]:value
+  //   })  
+  // }
+
+  const initialValues={
+    email:'',
+    password:''
   }
 
 
-  // login =() is called at last when the login button is clicked and we are done with the input part and all modification in the user field
+  // handleSubmit =() is called at last when the login button is clicked and we are done with the input part and all modification in the user field
 
-  const login=()=>{
+  const handleSubmit=(values)=>{
 
-      // extracting the email and password of the user from 'user' variable
-      const{email,password}=user
+      // extracting the email and password of the user from 'values' variable mainained by formik
+      const{email,password}=values
 
       // checking the condition if both email and password exists
       if(email && password)
       {
-          localStorage.setItem('myData',JSON.stringify(user))
+          
         // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
-          axios.post("http://localhost:8000/login",user)
+          axios.post("http://localhost:8000/login",values)
           .then(res=>{
             alert(res.data.message)
             console.log("*******",res.data)
@@ -69,22 +65,48 @@ const Login = ({setLoginUser}) => {
       }   
   }
 
+  const validationSchema=yup.object({
+    
+    email:yup.string().required('Email is Required'),
+    password:yup.string().required('Please enter the password')
+
+    // validateSchema is a function which is maintained by yup library and is used to validate the input field along with returning the error message as well
+
+  })
+
   return (
 
     //Login form  
-    // here user.email or user.password is  const[user,setUser]=useState({email:"",password:""}) the recent modified value of user variable we have declared above as set state
 
-    <div className="login">
+    <Formik initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
 
-        {console.log(user)}
-        <h1>Login</h1>
-        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email"></input>
-        <input type="password" name="password" value={user.password} onChange={handleChange}  placeholder="Enter your Password" ></input>
-        <div className="button" onClick={login}>Login</div>
-        
-    </div>
+            // initialValues,validationSchema and onSubmit written here to call these function as and when needed it is also maintained by formik
+    >
+
+      <Form>
+          <div className="login">
+
+              {/* {console.log(user)} */}
+              <h1>Login</h1>
+              
+              <Field className="Field" type="text" name="email"  placeholder="Enter your Email"></Field>
+              <ErrorMessage className='error' name="email"/>
+
+              <Field className="Field" type="password" name="password"   placeholder="Enter your Password" ></Field>
+              <ErrorMessage className='error' name="password"/> <br></br><br></br>
+
+              <button className="button" type="submit" >Login</button>
+              
+
+               {/* here Field is used in place of input and errorMessage is a predefined feature of formik and yup  */}
+               {/* all the function is being handled using formikand yup */}
+          </div>
+      </Form>
+    </Formik>
   )
-};
+}
 
 export default Login;
 

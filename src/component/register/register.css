@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.register > input {
+.Field {
     border-radius: 8px;
     border: 2px solid #dddfe2;
     outline: none;
@@ -21,7 +21,7 @@
     font-size: 1rem;
 }
 
-.register > .button {
+.button {
     background: #1877f2;
     border: 1px solid #1877f2;
     color: #fff;
@@ -32,7 +32,7 @@
     outline: none;
     cursor: pointer;
 }
-/* 
+
 .radio
 {
     border-radius: 8px;
@@ -42,4 +42,11 @@
     padding: 0.5rem 0.75rem;
     width: 92%;
     font-size: 1rem;
-} */
+}
+
+.error
+{
+    font-size: 30px;
+    font-family: bold;
+    color: red;
+}
