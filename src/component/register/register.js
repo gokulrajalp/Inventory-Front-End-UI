@@ -1,35 +1,17 @@
-import React, { useEffect,useState } from "react"
-import { ErrorMessage, useFormik } from "formik"
+import React, {useState } from "react"
+import { ErrorMessage} from "formik"
 import * as yup from 'yup'
-import "./register.css"
 import axios from "axios"
-
 import { useHistory } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
+import "./register.css"
 
 const Register = () => {
 
+    // to initialize the history object
     const history=useHistory();
-    const [ user, setUser] = useState({
-        name: "",
-        email:"",
-        password:"",
-        reEnterPassword: "",
-        designation:""
-    })
 
-    // const handleChange = e => {
-    //     console.log("handlechange fired ......********")
-    //     const { name, value } = e.target
-    //     setUser({
-    //         ...user,
-    //         [name]: value
-    //     })
-    // }
-
-    
-
-
+    // to initialize the field values as null initially ...
     const initialValues={
         
             name:'',
@@ -38,11 +20,17 @@ const Register = () => {
             reEnterPassword:''
     }
 
-    const handleSubmit=(values)=>{
 
+    // to handle the the function as it is clicked on submit button ...this happens due to formik without the onclick button...
+    const handleSubmit=(values)=>{
+        // values is coming with the help of formik when it is clicked on submit button with all the form values as object ..
         console.log("form values : ",values)
 
+        // extracting name,email,password,reEnterPassword from values object....
         const { name, email, password, reEnterPassword } = values
+
+        // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
+
         if( name && email && password && (password === reEnterPassword)){
             axios.post("http://localhost:8000/register", values)
             .then( res => {
@@ -50,11 +38,17 @@ const Register = () => {
                 // setLoginUser1(res.data.user)
                 history.push("/login")
             })
+
+            //history.push("/") is used to redirect to homepage after successfull login of the user in login page
+
+            // res.data.message is coming from backend as response 
         } else {
             alert("invlid input")
         }
     }
 
+
+    // validateSchema is a function which is maintained by yup library and is used to validate the input field along with returning the error message as well
     const validationSchema=yup.object({
         name:yup.string().required('Name is Required').max(6,'Should be 4 char'),
         email:yup.string().required('Email is Required'),
@@ -70,7 +64,8 @@ const Register = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
             
-        
+        // initialValues,validationSchema and onSubmit written here to call these function as and when needed it is also maintained by formik
+
         >
             <Form>
                 <div className="register">
@@ -98,7 +93,11 @@ const Register = () => {
                                 <div>or</div>
 
                                 <button className="button" type="cancel" onClick={() => history.push("/login")}>Login</button>
-                                
+
+
+                {/* here Field is used in place of input and errorMessage is a predefined feature of formik and yup  */}
+               {/* all the function is being handled using formikand yup */}
+             
                 </div>
             </Form>   
 

@@ -1,16 +1,18 @@
 import './App.css';
-import Inventory from './component/homepage/inventory';
-import Login from "./component/login/login";
-import Register from "./component/register/register";
+import Inventory from './component/Homepage/inventory';
+import Delivery from './component/Homepage/delivery';
+import Login from "./component/Login/login";
+import Register from "./component/Register/register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import{useState} from 'react';
+import {useState} from 'react';
+import {AuthProvider} from './component/Authentication/Auth';
+import { RequiredAuth } from './component/Authentication/RequiredAuth';
+
 // import { useHistory } from "react-router-dom";
 
 
 function App() {
 
-  
-  
   // this user will come from login.js after setting up the user in setLoginUser in login.js and this user will then be used verify the condition written below (user && user._id ?<Homepage />:<Login />)
   const[user,setLoginUser]=useState({})
 
@@ -18,42 +20,55 @@ function App() {
   console.log("****final_user___",user);
   return (
 
-    <div className="App">
+      // routes written inside AuthProvider will be treated as children as declared in auth.js
+      <AuthProvider>
+    
 
-      <Router>
-        <Switch>
+          <div className="App">
 
-          <Route exact path='/'>
-            
-            {
-              <Login setLoginUser={setLoginUser}/>
-            }
-            
-          </Route>
+          <Router>
+            <Switch>
 
-          <Route path='/login'>
+              <Route exact path='/'>
+                
+                {
+                  <Login setLoginUser={setLoginUser}/>
+                }
+                
+              </Route>
 
-            {
-              <Login setLoginUser={setLoginUser}/>
-            }
+              <Route path='/login'>
 
-          </Route>
+                {
+                  <Login setLoginUser={setLoginUser}/> 
+                }
 
-          <Route path='/register'>
-            <Register />
-          </Route>
+              </Route>
 
-          <Route path='/inventory'>
-            {
-                <Inventory setLoginUser={setLoginUser}/>
-            }
-          </Route>
+              <Route path='/register'>
+                <Register />
+              </Route>
 
-        </Switch>
-      </Router>
+              <Route path='/inventory'>
+                {
+                   <RequiredAuth> <Inventory/> </RequiredAuth>  
+                }
+              </Route>
+
+
+              <Route path='/delivery'>
+                {
+                   <RequiredAuth> <Delivery/> </RequiredAuth>  
+                }
+              </Route>
+
+            </Switch>
+          </Router>
       
 
-    </div>
+      </div>
+
+    </AuthProvider>
   );
 }
 
