@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import "./inventory.css";
+import "./InventoryDashboard.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Authentication/Auth";
 

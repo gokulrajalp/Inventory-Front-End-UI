@@ -1,5 +1,5 @@
 import './App.css';
-import Inventory from './component/homepage/inventory';
+import Inventory from './component/Inventory/InventoryDashboard1/InventoryDashboard';
 import Delivery from './component/homepage/delivery';
 import Login from "./component/login/login";
 import Register from "./component/register/register";
