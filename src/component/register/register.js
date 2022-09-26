@@ -43,17 +43,17 @@ const Register = () => {
 
             // res.data.message is coming from backend as response 
         } else {
-            alert("invlid input")
+            alert("invlid input")//Re-enter the password
         }
     }
 
 
     // validateSchema is a function which is maintained by yup library and is used to validate the input field along with returning the error message as well
     const validationSchema=yup.object({
-        name:yup.string().required('Name is Required').max(6,'Should be 4 char'),
+        name:yup.string().required('Name is Required'),
         email:yup.string().required('Email is Required'),
-        password:yup.string().required('Please enter the password'),
-        reEnterPassword:yup.string().required('Please Re-enter the password')
+        password:yup.string().required('Please enter the password').min(6,'Should be 6 char'),
+        reEnterPassword:yup.string().required('Please Re-enter the password').min(6,'Should be 6 char')
     })
 
     

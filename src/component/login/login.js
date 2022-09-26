@@ -35,7 +35,7 @@ const Login = ({setLoginUser}) => {
         axios.post("http://localhost:8000/login",values)
         .then(res=>{
           alert(res.data.message)
-          console.log("*******",res.data)
+          console.log("*******",res.data.user)
           auth.login(res.data.user);
 
           setLoginUser(res.data.user)
