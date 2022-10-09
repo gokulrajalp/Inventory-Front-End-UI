@@ -1,23 +1,22 @@
 import './App.css';
-import Inventory from './component/Inventory/InventoryDashboard1/InventoryDashboard';
-import Delivery from './component/homepage/delivery';
-import Login from "./component/login/login";
-import Register from "./component/register/register";
+import Inventory from './component/Homepage/inventory';
+import Delivery from './component/Homepage/Delivery/delivery';
+import Login from "./component/Login/login";
+import Register from "./component/Register/register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {useState} from 'react';
 import {AuthProvider} from './component/Authentication/Auth';
 import { RequiredAuth } from './component/Authentication/RequiredAuth';
+import Customer from './component/Customer/Customer';
+import Products from './component/Products/Products';
 
-// import { useHistory } from "react-router-dom";
+
 
 
 function App() {
 
-  // this user will come from login.js after setting up the user in setLoginUser in login.js and this user will then be used verify the condition written below (user && user._id ?<Homepage />:<Login />)
-  const[user,setLoginUser]=useState({})
 
   
-  console.log("****final_user___",user);
+
   return (
 
       // routes written inside AuthProvider will be treated as children as declared in auth.js
@@ -32,7 +31,7 @@ function App() {
               <Route exact path='/'>
                 
                 {
-                  <Login setLoginUser={setLoginUser}/>
+                  <Login />
                 }
                 
               </Route>
@@ -40,7 +39,7 @@ function App() {
               <Route path='/login'>
 
                 {
-                  <Login setLoginUser={setLoginUser}/> 
+                  <Login /> 
                 }
 
               </Route>
@@ -59,6 +58,18 @@ function App() {
               <Route path='/delivery'>
                 {
                    <RequiredAuth> <Delivery/> </RequiredAuth>  
+                }
+              </Route>
+
+              <Route path='/customer'>
+                {
+                    <Customer/> 
+                }
+              </Route>
+
+              <Route path='/product'>
+                {
+                    <Products/> 
                 }
               </Route>
 

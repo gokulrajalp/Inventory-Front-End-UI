@@ -6,7 +6,7 @@ import axios from "axios"
 import { useHistory } from "react-router-dom";
 import { Field, Form,Formik } from "formik";
 import { useAuth } from "../Authentication/Auth";
-const Login = ({setLoginUser}) => {
+const Login = () => {
 
   let auth=useAuth(); 
 
@@ -35,10 +35,12 @@ const Login = ({setLoginUser}) => {
         axios.post("http://localhost:8000/login",values)
         .then(res=>{
           alert(res.data.message)
-          console.log("*******",res.data.user)
+          console.log("***",res.data)
+          
           auth.login(res.data.user);
 
-          setLoginUser(res.data.user)
+          // setLoginUser(res.data.user)
+
           if(res.data.user.designation==="inventoryadmin")
           {
             history.push("/inventory")
@@ -102,8 +104,3 @@ const Login = ({setLoginUser}) => {
 }
 
 export default Login;
-
-
-
-
-

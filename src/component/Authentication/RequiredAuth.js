@@ -19,6 +19,7 @@ export const RequiredAuth=({children})=>
     
     
     
+    
     // else it will return the children...
     return children;
 }

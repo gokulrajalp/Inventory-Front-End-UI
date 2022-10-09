@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./delivery.css";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../Authentication/Auth";
+import { useAuth } from "../../Authentication/Auth";
 
 const Delivery=()=>{
     const history=useHistory();
@@ -13,7 +13,7 @@ const Delivery=()=>{
         auth.logout();
     }
 
-    console.log("****auth user data",auth.user);
+    console.log("**auth user data",auth.user);
     return(
         <div className="delivery-homepage">
             <h1>Hello {auth.user.name} (Delivery Admin) </h1>
@@ -24,4 +24,3 @@ const Delivery=()=>{
 }
 
 export default Delivery;
-

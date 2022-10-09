@@ -4,12 +4,14 @@ import * as yup from 'yup'
 import axios from "axios"
 import { useHistory } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
-import "./register.css"
+import "./Customer.css"
 
-const Register = () => {
+const Customer = () => {
 
     // to initialize the history object
     const history=useHistory();
+
+    
 
     // to initialize the field values as null initially ...
     const initialValues={
@@ -17,7 +19,9 @@ const Register = () => {
             name:'',
             email:'',
             password:'',
-            reEnterPassword:''
+            reEnterPassword:'',
+            phone:'',
+            state:''
     }
 
 
@@ -27,17 +31,16 @@ const Register = () => {
         console.log("form values : ",values)
 
         // extracting name,email,password,reEnterPassword from values object....
-        const { name, email, password, reEnterPassword} = values
+        const { name, email, password, reEnterPassword ,phone,state} = values
 
         // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
 
-        if( name && email && password && (password === reEnterPassword)){
-            axios.post("http://localhost:8000/register", values)
+        if(name && email && password && (password === reEnterPassword) && state && phone){
+            
+            axios.post("http://localhost:8000/customer", values)
             .then( res => {
                 alert(res.data.message)
-                // setLoginUser1(res.data.user)
-                // history.push("/login")
-                window.location="/login"
+                
             })
 
             //history.push("/") is used to redirect to homepage after successfull login of the user in login page
@@ -55,10 +58,14 @@ const Register = () => {
         email:yup.string().required('Email is Required'),
         password:yup.string().required('Please enter the password'),
         reEnterPassword:yup.string().required('Please Re-enter the password'),
-        
-    })
-
-    
+        state:yup.string().required("State is required!"),
+        phone:yup.string()
+                .required("This field is Required")
+                .matches(
+                    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+                    "Phone number is not valid"
+                )
+    }) 
 
     return (
 
@@ -84,17 +91,35 @@ const Register = () => {
                                 <ErrorMessage className='error' name="password"/>
 
                                 <Field className="Field" type="password" name="reEnterPassword" placeholder="Re-enter Password" ></Field>
-                                <ErrorMessage className='error' name="reEnterPassword"/> <br></br><br></br>
+                                <ErrorMessage className='error' name="reEnterPassword"/> 
                                  
-                                <label>Inventory Admin :</label>
-                                <Field className="Field" type="radio" name="designation" value="inventoryadmin" ></Field>
-                                <label>Delivery Admin :</label>
-                                <Field className="Field" type="radio" name="designation" value="deliveryadmin" ></Field>
-        
-                                <button className="button" type="submit"  >Register </button>
-                                <div>or</div>
+                                <Field className="Field" type="tel" name="phone" placeholder="Mobile Number"></Field>
+                                <ErrorMessage className='error' name="phone"/>
 
-                                <button className="button" type="cancel" onClick={() => history.push("/login")}>Login</button>
+                                <Field as="select"
+                                    className="Field"
+                                    name="state"
+                                    
+                                    // onChange={handleChange}
+                                    // onBlur={handleBlur}
+                                    style={{ display: "block" }}>
+
+                                    <option value="" label="Select a state">Select a state{" "}</option>
+
+                                    <option value="Delhi" label="Delhi">{" "}Delhi</option>
+
+                                    <option value="Punjab" label="Punjab">Punjab</option>
+                                    
+                                    <option value="Jharkhand" label="Jharkhand">Jharkhand</option>
+                                </Field>
+                                <ErrorMessage className='error' name="state"/><br></br><br></br>
+                                
+
+                               
+                                <button className="button" type="submit"  >Register </button>
+                                
+
+                                
 
 
                 {/* here Field is used in place of input and errorMessage is a predefined feature of formik and yup  */}
@@ -109,4 +134,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Customer
