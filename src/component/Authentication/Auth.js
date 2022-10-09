@@ -33,6 +33,7 @@ export const AuthProvider=({children})=> {
 
 // useAuth function is used to give access of user,login ,logout object to any component whomever wants to use it for authentication
 // usecontext is used when we want to share the state variable among different components..
+
 export const useAuth=()=>{
     return useContext(AuthContext); 
 }
