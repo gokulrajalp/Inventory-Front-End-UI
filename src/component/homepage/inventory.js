@@ -24,27 +24,43 @@ const Inventory=()=>{
 
         
 
-            <div className="container-fluid bg-dark px-0 py-0">
-                {/* <nav className="navbar sticky-top navbar-dark bg-secondary justify-content-between">
-                            <a className="navbar-brand">Navbar</a>
+            <div className="container-fluid  px-0 py-0">
+                {/* <nav className="navbar sticky-top navbar-dark bg-dark justify-content-between px-4"> */}
+                <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark px-4">
+                            <a className="navbar-brand">Inventory Dashboard</a>
+
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarNav">
+                                <ul className="navbar-nav" style={{marginLeft:"6rem"}}>
+                                <li className="nav-item active">
+                                    <a className="nav-link" href="#">Profile <span className="sr-only">(current)</span></a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Add Product</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Update Inventory</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Check Availability</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Filter Product</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Generate Report </a>
+                                </li>
                                 
+                                </ul>
+                            </div>   
                             <button className="btn btn-outline-warning my-2 my-sm-0 bg-dark text-light" onClick={handleLogout}>Logout</button>
                             
-                    </nav> */}
-
-
-                    <nav className="nav-menu d-none d-lg-block">
-                        <ul>
-                            <li className="active"><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Contact</a></li>
-
-                        </ul>
                     </nav>
 
-                    <a href="#" className="get-started-btn scrollto">Get Started</a>
+
+                    
 
                 <div className="row">
                      
@@ -53,34 +69,35 @@ const Inventory=()=>{
                         
 
                         <div className="row mt-3">
-                            <div className="col-lg-3 col-md-4 d-md-block">
+                            <div className="dashboard col-lg-3 col-md-4 d-md-block">
 
-                                <div className="card bg-common card-left m-4" style={{height:"35rem"}}>
-                                    <div className="card-body">
+                                <div className="card bg-dark card-left m-4 " style={{height:"32rem"}}>
+                                    <div className="card-body ">
                                         <nav className="nav d-block"> 
-                                            <a className="nav-link active text-center" aria-current="page" href="#">
-                                                <i className="fa-solid fa-user mr-1 text-center mb-3" style={{fontSize:"10rem"}}></i><h5>Profile</h5>
+                                            <a className="nav-link active text-center text-light" aria-current="page" href="#">
+                                                <i className="fa-solid fa-user mr-1 text-center mb-3 text-secondary" style={{fontSize:"10rem"}}></i><h5>Profile</h5>
                                             </a>
 
-                                            <a className="nav-link fs-5 mb-2" href="#">
-                                                <i className="fa-solid fa-pen-nib mr-1 m-1"></i> Add Product
+                                            <a className="nav-link fs-5 mb-2 text-secondary" href="#">
+                                                <i className="fa-solid fa-cart-plus mr-1 m-1 "></i> Add Product
                                             </a>
 
-                                            <a className="nav-link fs-5 mb-2" href="#">
+                                            <a className="nav-link fs-5 mb-2 text-secondary" href="#">
                                                 <i className="fa-solid fa-pen-nib mr-1 m-1"></i> Update Inventory
                                             </a>
 
 
 
-                                            <a className="nav-link fs-5 mb-2" href="#">
-                                                <i className="fa-solid fa-pen-nib mr-1 m-1"></i> Check Availability
+                                            <a className="nav-link fs-5 mb-2 text-secondary" href="#">
+                                                <i className="fa-solid fa-list-check mr-1 m-1"></i> Check Availability
+              
                                             </a>
 
-                                            <a className="nav-link fs-5 mb-2" href="#">
+                                            <a className="nav-link fs-5 mb-2 text-secondary" href="#">
                                                 <i className="fa-solid fa-filter mr-1 m-1"></i> Filter Product
                                             </a>
 
-                                            <a className="nav-link fs-5 mb-2" href="#">
+                                            <a className="nav-link fs-5 mb-2 text-secondary" href="#">
                                                 
                                               <i className="fa-solid fa-file mr-1 m-2"></i>Generate Report
                                             </a>
@@ -95,11 +112,11 @@ const Inventory=()=>{
 
                             {/* right side div starts */}
 
-                            <div className="col-lg-8 col-md-9 m-4" style={{paddingLeft:"10rem"}} >
+                            <div className="col-lg-8 col-md-9 m-4" >
 
 
-                                <div className="row">
-                                    <div className="col-md-3 mx-4 my-5">
+                                <div className="inventory-info row" >
+                                    <div className="shadow col-md-3 mx-4 my-5 ">
                                         <div className="card text-center">
                                             <div className="card-header bg-primary text-white">
                                                 <div className="row align-items-center">
@@ -126,7 +143,7 @@ const Inventory=()=>{
 
                                     {/* 2nd card */}
 
-                                    <div className="col-md-3 mx-4 my-5">
+                                    <div className="shadow col-md-3 mx-4 my-5">
                                         <div className="card text-center">
                                             <div className="card-header bg-success text-white">
                                                 <div className="row align-items-center">
@@ -153,7 +170,7 @@ const Inventory=()=>{
 
                                     {/* 3rd */}
 
-                                    <div className="col-md-3 mx-4 my-5">
+                                    <div className="shadow col-md-3 mx-4 my-5">
                                         <div className="card text-center">
                                             <div className="card-header bg-warning text-white">
                                                 <div className="row align-items-center">
@@ -179,7 +196,7 @@ const Inventory=()=>{
 
                                     {/* 4th card */}
 
-                                    <div className="col-md-3 mx-4 my-5">
+                                    <div className="shadow col-md-3 mx-4 my-5">
                                         <div className="card text-center">
                                             <div className="card-header bg-danger text-white">
                                                 <div className="row align-items-center">
