@@ -32,7 +32,7 @@ const Register = () => {
         // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
 
         if( name && email && password && (password === reEnterPassword)){
-            axios.post("http://localhost:8000/register", values)
+            axios.post("http://localhost:8000/users/admin/register", values)
             .then( res => {
                 alert(res.data.message)
                 // setLoginUser1(res.data.user)
@@ -69,7 +69,7 @@ const Register = () => {
         // initialValues,validationSchema and onSubmit written here to call these function as and when needed it is also maintained by formik
 
         >
-            <Form>
+            <Form className="form-container">
                 <div className="register">
                         {/* {console.log("User", user)} */}
                         <h1>Register</h1>
