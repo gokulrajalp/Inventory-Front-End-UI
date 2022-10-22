@@ -32,7 +32,7 @@ const Login = () => {
     {
         
       // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
-        axios.post("http://localhost:8000/login",values)
+        axios.post("http://localhost:8000/users/admin/login",values)
         .then(res=>{
           alert(res.data.message)
           console.log("***",res.data)
@@ -80,7 +80,7 @@ const Login = () => {
             // initialValues,validationSchema and onSubmit written here to call these function as and when needed it is also maintained by formik
     >
 
-      <Form>
+      <Form className="form-container">
           <div className="login">
 
               {/* {console.log(user)} */}

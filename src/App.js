@@ -23,7 +23,7 @@ function App() {
       <AuthProvider>
     
 
-          <div className="App">
+          <div className="bg-right">
 
           <Router>
             <Switch>
