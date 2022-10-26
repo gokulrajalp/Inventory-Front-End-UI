@@ -1,8 +1,8 @@
 import './App.css';
-import Inventory from './component/Homepage/inventory';
-import Delivery from './component/Homepage/Delivery/delivery';
-import Login from "./component/Login/login";
-import Register from "./component/Register/register";
+import Inventory from './component/homepage/inventory';
+import Delivery from './component/homepage/Delivery/delivery';
+import Login from "./component/login/login";
+import Register from "./component/register/register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {AuthProvider} from './component/Authentication/Auth';
 import { RequiredAuth } from './component/Authentication/RequiredAuth';
