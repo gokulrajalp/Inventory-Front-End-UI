@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./inventory.css";
-import { useAuth } from "../../Authentication/Auth";
-import AddProduct from "../AddProduct1/AddProduct";
+import { useAuth } from "../Authentication/Auth";
+import AddProduct from "../AddProduct/AddProduct";
 
 
 const Inventory=()=>{
