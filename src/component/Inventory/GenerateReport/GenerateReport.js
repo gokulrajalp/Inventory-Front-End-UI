@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from "../NavBar";
 import Sidebar from "../Sidebar/Sidebar";
 
-export default function CheckAvailability() {
+export default function GenerateReport() {
   return (
     <div className="container-fluid  px-0 py-0">
       <NavBar />

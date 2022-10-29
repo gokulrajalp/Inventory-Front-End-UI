@@ -7,7 +7,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {AuthProvider} from './component/Authentication/Auth';
 import { RequiredAuth } from './component/Authentication/RequiredAuth';
 import Customer from './component/Customer/Customer';
-import Products from './component/Products/Products';
+import AddProducts from './component/Inventory/AddProduct/AddProduct';
+import UpdateProducts from './component/Inventory/Update/Update';
+import CheckAvailability from './component/Inventory/CheckAvailability/CheckAvailability';
+import FilterProduct from './component/Inventory/FilterProduct/FilterProduct';
+import GenerateReport from './component/Inventory/GenerateReport/GenerateReport';
+import Profile from './component/Inventory/Profile/Profile';
 
 
 
@@ -48,11 +53,53 @@ function App() {
                 <Register />
               </Route>
 
+
               <Route path='/inventory'>
                 {
                    <RequiredAuth> <Inventory/> </RequiredAuth>  
                 }
               </Route>
+
+              <Route path='/profile'>
+                {
+                    <RequiredAuth><Profile/></RequiredAuth> 
+                }
+              </Route>
+
+              <Route path='/addproduct'>
+                {
+                    <RequiredAuth><AddProducts/></RequiredAuth> 
+                }
+              </Route>
+
+              <Route path='/updateproduct'>
+                {
+                    <RequiredAuth><UpdateProducts/></RequiredAuth> 
+                }
+              </Route>
+
+              <Route path='/availability'>
+                {
+                    <RequiredAuth><CheckAvailability/></RequiredAuth> 
+                }
+              </Route>
+
+              <Route path='/filter'>
+                {
+                    <RequiredAuth><FilterProduct/></RequiredAuth> 
+                }
+              </Route>
+
+              <Route path='/generate'>
+                {
+                    <RequiredAuth><GenerateReport/></RequiredAuth> 
+                }
+              </Route>
+
+
+
+
+
 
 
               <Route path='/delivery'>
@@ -66,13 +113,8 @@ function App() {
                     <Customer/> 
                 }
               </Route>
-
-              <Route path='/product'>
-                {
-                    <Products/> 
-                }
-              </Route>
-
+              
+              
             </Switch>
           </Router>
       
