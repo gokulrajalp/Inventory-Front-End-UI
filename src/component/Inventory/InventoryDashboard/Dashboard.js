@@ -1,9 +1,9 @@
 const Dashboard = () =>{
     return(
-        <div className="col-lg-8 col-md-9 m-4" >
+        <div className="col-lg-8 col-md-9 m-2" >
 
 
-                                <div className="inventory-info row" >
+                                <div className="inventory-info row justify-content-center" >
                                     <div className="shadow col-md-3 mx-4 my-5 ">
                                         <div className="card text-center">
                                             <div className="card-header bg-primary text-white">

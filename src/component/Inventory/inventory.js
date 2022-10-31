@@ -15,9 +15,9 @@ const Inventory=()=>{
     
                 <div className="row">
                      
-                    <div className="col-md-12 col-11 mx-auto">
+                    <div className="col-md-12 col-9 mx-auto ">
                         
-                        <div className="row mt-3">
+                        <div className="row mt-3 justify-content-center">
                                 <Sidebar/>
                                 <Dashboard/>
                         </div>
