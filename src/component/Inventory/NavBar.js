@@ -7,6 +7,7 @@ const NavBar =(props) =>{
 
 // handleLogout is used to call logout object of useAuth annd hence it logouts from the page..
 const handleLogout=()=>{
+  localStorage.clear();
   auth.logout();
 }
 

@@ -10,6 +10,61 @@ const Login = () => {
 
   let auth=useAuth(); 
 
+
+
+
+useEffect(()=>{
+  if(localStorage.getItem("login")==="true"){
+
+
+    const values={
+      email:localStorage.getItem("email"),
+      password:localStorage.getItem("password")
+    }
+
+
+  if(values.email && values.password)
+    {
+        
+      // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
+        axios.post("http://localhost:8000/users/admin/login",values)
+        .then(res=>{
+          
+          
+          auth.login(res.data.user);
+
+          // setLoginUser(res.data.user)
+
+          if(res.data.user.designation==="inventoryadmin")
+          {
+            history.push("/inventory")
+          }
+          else{
+            history.push("/delivery")
+          } 
+        })
+        //history.push("/") is used to redirect to homepage after successfull login of the user in login page
+
+        // res.data.user is coming from backend as response
+    }
+  }
+},[])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // to initialize the history object
   const history=useHistory();
   
@@ -21,8 +76,11 @@ const Login = () => {
 
   // handleSubmit =() is called at last when the login button is clicked and we are done with the input part and all modification in the user field
   const handleSubmit=(values)=>{
+ auth.login(values);
+    localStorage.setItem('email',auth.user.email)
+    localStorage.setItem('password',auth.user.password)
 
-     auth.login(values);
+    
 
     // extracting the email and password of the user from 'values' variable mainained by formik
     // const{email,password}=values
@@ -34,8 +92,9 @@ const Login = () => {
       // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
         axios.post("http://localhost:8000/users/admin/login",values)
         .then(res=>{
+          if(res.data.message!=="Login Successfull")
           alert(res.data.message)
-          console.log("***",res.data)
+         
           
           auth.login(res.data.user);
 
@@ -43,9 +102,11 @@ const Login = () => {
 
           if(res.data.user.designation==="inventoryadmin")
           {
+            localStorage.setItem('login','true');
             history.push("/inventory")
           }
           else{
+            localStorage.setItem('login','true');
             history.push("/delivery")
           } 
         })
