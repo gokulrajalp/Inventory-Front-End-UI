@@ -2,7 +2,8 @@
 {
     /* background-color: #21293D; */
     background-image: url('../Images/background.jpg');
-    background-repeat: round;
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
 

@@ -1,17 +1,17 @@
 import React from "react";
-import NavBar from "../NavBar";
-import Sidebar from "../Sidebar/Sidebar";
+// import NavBar from "../NavBar";
+// import Sidebar from "../Sidebar/Sidebar";
 
 export default function AddProduct() {
 
   return (
-    <div className="container-fluid  px-0 py-0">
-      <NavBar />
+    // <div className="container-fluid  px-0 py-0">
+    //   {/* <NavBar /> */}
 
-        <div className="row">
-            <div className="col-md-12 col-9 mx-auto">
-            <div className="row mt-3">
-                <Sidebar />
+    //     <div className="row">
+    //         <div className="col-md-12 col-9 mx-auto">
+    //         <div className="row mt-3">
+    //             {/* <Sidebar /> */}
                   <div className="col-lg-3 col-md-9 m-3" >
                         <form>
                             <div className="form-group">
@@ -30,9 +30,9 @@ export default function AddProduct() {
                             <button type="submit" className="btn btn-primary">Submit</button>
                       </form>
                   </div>
-            </div>
-            </div>
-        </div>
-    </div>
+    //         </div>
+    //         </div>
+    //     </div>
+    // </div>
   );
 }

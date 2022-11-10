@@ -2,7 +2,7 @@ import { useAuth } from "../Authentication/Auth";
 import { Link } from "react-router-dom";
 
 
-const NavBar =() =>{
+const NavBar =(props) =>{
   let auth=useAuth();
 
 // handleLogout is used to call logout object of useAuth annd hence it logouts from the page..
@@ -22,16 +22,20 @@ const handleLogout=()=>{
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav text-center" >
 
-                                <li className="nav-item active mx-2">
-                                    <Link to="/inventory" className="nav-link text-light">Home <span className="sr-only">(current)</span></Link>
+                                <li className="nav-item active mx-2" onClick={()=>{props.onClick("Dashboard")}}>
+                                  <span className="nav-link text-light" role="button">Home</span><span className="sr-only">(current)</span>
+                                    {/* <Link to="/inventory" >Home </Link> */}
                                 </li>
 
-                                <li className="nav-item active mx-2">
-                                    <Link to="/profile" className="nav-link text-light">Profile <span className="sr-only">(current)</span></Link>
+                                <li className="nav-item active mx-2" onClick={()=>{props.onClick("Profile")}}>
+                                <span className="nav-link text-light" role="button">Profile</span><span className="sr-only">(current)</span>
+
+                                    {/* <Link to="/profile" className="nav-link text-light">Profile <span className="sr-only">(current)</span></Link> */}
                                 </li>
 
-                                <li className="nav-item mx-2">
-                                    <Link to="/addproduct" className="nav-link text-light">Add Product</Link>
+                                <li className="nav-item mx-2" onClick={()=>{props.onClick("AddProduct")}}>
+                                <span className="nav-link text-light" role="button">Add Product</span><span className="sr-only">(current)</span> 
+                                    {/* <Link to="/addproduct" className="nav-link text-light">Add Product</Link> */}
                                 </li>
                                 <li className="nav-item mx-2">
                                     <Link to="/updateproduct" className="nav-link text-light">Update Inventory</Link>
