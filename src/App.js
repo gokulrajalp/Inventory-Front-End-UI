@@ -13,6 +13,7 @@ import CheckAvailability from './component/Inventory/CheckAvailability/CheckAvai
 import FilterProduct from './component/Inventory/FilterProduct/FilterProduct';
 import GenerateReport from './component/Inventory/GenerateReport/GenerateReport';
 import Profile from './component/Inventory/Profile/Profile';
+import Sidebar from './component/Delivery/Sidebar';
 
 
 
@@ -111,6 +112,12 @@ function App() {
               <Route path='/customer'>
                 {
                     <Customer/> 
+                }
+              </Route>
+
+              <Route path='/deliveryi'>
+                {
+                    <Sidebar/> 
                 }
               </Route>
               
