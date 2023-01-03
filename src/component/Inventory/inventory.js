@@ -6,6 +6,11 @@ import NavBar from "./NavBar";
 import Sidebar from "./Sidebar/Sidebar";
 import { useState } from "react";
 import Profile from "./Profile/Profile";
+import UpdateInventory from "./UploadInventory/UploadInventory";
+import CheckAvailability from "./CheckAvailability/CheckAvailability";
+import FilterProduct from "./FilterProduct/FilterProduct";
+import GenerateReport from "./GenerateReport/GenerateReport";
+
 const Inventory=()=>{
     
 const [active, setActive] = useState("Dashboard");
@@ -25,8 +30,14 @@ const [active, setActive] = useState("Dashboard");
                                 {/* <Sidebar/> */}
                                 
                                 {active === "Dashboard" && <Dashboard/>}
-                                {active === "AddProduct" && <AddProduct/>}
                                 {active === "Profile" && <Profile/>}
+                                {active === "AddProduct" && <AddProduct/>}
+                                {active === "UpdateInventory" && <UpdateInventory/>}
+                                {active === "CheckAvailability" && <CheckAvailability/>}
+                                {active === "FilterProduct" && <FilterProduct/>}
+                                {active === "GenerateReport" && <GenerateReport/>}
+
+                                
 
                                 {/* <AddProduct/> */}
 

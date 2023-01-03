@@ -1,6 +1,6 @@
 import React from 'react'
-import NavBar from "../NavBar";
-import Sidebar from "../Sidebar/Sidebar";
+// import NavBar from "../NavBar";
+// import Sidebar from "../Sidebar/Sidebar";
 
 export default function Profile() {
   return (
@@ -10,6 +10,7 @@ export default function Profile() {
       <div className="row">
         <div className="col-md-12 col-11 mx-auto">
           <div className="row mt-3">
+            <h1 className="text-center text-white">Profile</h1>  
             {/* <Sidebar /> */}
           </div>
         </div>

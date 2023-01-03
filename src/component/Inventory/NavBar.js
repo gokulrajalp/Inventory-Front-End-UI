@@ -28,19 +28,55 @@ const handleLogout=()=>{
                                     {/* <Link to="/inventory" >Home </Link> */}
                                 </li>
 
+
+
+
                                 <li className="nav-item active mx-2" onClick={()=>{props.onClick("Profile")}}>
                                 <span className="nav-link text-light" role="button">Profile</span><span className="sr-only">(current)</span>
 
                                     {/* <Link to="/profile" className="nav-link text-light">Profile <span className="sr-only">(current)</span></Link> */}
                                 </li>
 
+
+
                                 <li className="nav-item mx-2" onClick={()=>{props.onClick("AddProduct")}}>
                                 <span className="nav-link text-light" role="button">Add Product</span><span className="sr-only">(current)</span> 
                                     {/* <Link to="/addproduct" className="nav-link text-light">Add Product</Link> */}
                                 </li>
-                                <li className="nav-item mx-2">
-                                    <Link to="/updateproduct" className="nav-link text-light">Update Inventory</Link>
+
+
+
+                                <li className="nav-item mx-2" onClick={()=>{props.onClick("UpdateInventory")}}>
+                                <span className="nav-link text-light" role="button">Update Inventory</span><span className="sr-only">(current)</span> 
+                                    {/* <Link to="/updateproduct" className="nav-link text-light">Update Inventory</Link> */}
                                 </li>
+
+
+                                <li className="nav-item mx-2" onClick={()=>{props.onClick("CheckAvailability")}}>
+                                <span className="nav-link text-light" role="button">Check Availability</span><span className="sr-only">(current)</span> 
+                                    {/* <Link to="/updateproduct" className="nav-link text-light">Update Inventory</Link> */}
+                                </li>
+
+
+
+
+                                <li className="nav-item mx-2" onClick={()=>{props.onClick("FilterProduct")}}>
+                                <span className="nav-link text-light" role="button">Filter Product</span><span className="sr-only">(current)</span> 
+                                    {/* <Link to="/updateproduct" className="nav-link text-light">Update Inventory</Link> */}
+                                </li>
+
+
+
+
+                                <li className="nav-item mx-2" onClick={()=>{props.onClick("GenerateReport")}}>
+                                <span className="nav-link text-light" role="button">Generate Report</span><span className="sr-only">(current)</span> 
+                                    {/* <Link to="/updateproduct" className="nav-link text-light">Update Inventory</Link> */}
+                                </li>
+
+
+
+
+{/* 
                                 <li className="nav-item mx-2">
                                     <Link to="/availability" className="nav-link text-light">Check Availability</Link>
                                 </li>
@@ -49,7 +85,7 @@ const handleLogout=()=>{
                                 </li>
                                 <li className="nav-item mx-2">
                                     <Link to="/generate" className="nav-link text-light">Generate Report </Link>
-                                </li>
+                                </li> */}
                                 <li className="nav-item mx-2">
                                   <button className="btn btn-outline-warning my-2 my-sm-0 bg-dark text-light" onClick={handleLogout}>Logout</button>
 
