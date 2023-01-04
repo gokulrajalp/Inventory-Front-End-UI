@@ -5,6 +5,7 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 import * as TbIcons from 'react-icons/tb';
 import * as VscIcons from 'react-icons/vsc';
+import * as GrIcons from 'react-icons/gr';
 
 export const SidebarData = [
     {
@@ -97,6 +98,6 @@ export const SidebarData = [
     {
         title: 'Logout',
         path:'/',
-        icon:<VscIcons.VscNewFile/>
+        icon:<GrIcons.GrLogout/>
     } 
 ]
