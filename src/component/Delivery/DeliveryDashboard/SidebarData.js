@@ -92,5 +92,11 @@ export const SidebarData = [
         title: 'Update',
         path:'/update',
         icon:<VscIcons.VscNewFile/>
-    }    
+    },   
+    
+    {
+        title: 'Logout',
+        path:'/',
+        icon:<VscIcons.VscNewFile/>
+    } 
 ]

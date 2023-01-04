@@ -1,6 +1,6 @@
 import './App.css';
 import Inventory from './component/Inventory/inventory';
-import Delivery from './component/homepage/Delivery/delivery';
+// import Delivery from './component/homepage/Delivery/delivery';
 import Login from "./component/login/login";
 import Register from "./component/register/register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -13,7 +13,8 @@ import CheckAvailability from './component/Inventory/CheckAvailability/CheckAvai
 import FilterProduct from './component/Inventory/FilterProduct/FilterProduct';
 import GenerateReport from './component/Inventory/GenerateReport/GenerateReport';
 import Profile from './component/Inventory/Profile/Profile';
-import Sidebar from './component/Delivery/Sidebar';
+// import Sidebar from './component/Delivery/Sidebar';
+import DeliveryDashboard from './component/Delivery/DeliveryDashboard/DeliveryDashboard'
 
 
 
@@ -103,11 +104,11 @@ function App() {
 
 
 
-              <Route path='/delivery'>
+              {/* <Route path='/delivery'>
                 {
                    <RequiredAuth> <Delivery/> </RequiredAuth>  
                 }
-              </Route>
+              </Route> */}
 
               <Route path='/customer'>
                 {
@@ -115,9 +116,9 @@ function App() {
                 }
               </Route>
 
-              <Route path='/deliveryi'>
+              <Route path='/delivery'>
                 {
-                    <Sidebar/> 
+                    <DeliveryDashboard/> 
                 }
               </Route>
               
