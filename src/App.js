@@ -118,7 +118,7 @@ function App() {
 
               <Route path='/delivery'>
                 {
-                    <DeliveryDashboard/> 
+                    <RequiredAuth><DeliveryDashboard/></RequiredAuth>
                 }
               </Route>
               

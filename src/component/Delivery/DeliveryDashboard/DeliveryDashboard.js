@@ -6,7 +6,8 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons';
-
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../../Authentication/Auth";
 
 const Nav=styled.div`
   background: #15171c;
@@ -42,6 +43,12 @@ const SideBarWrap = styled.div`
 `;
 
 const DeliveryDashboard = () => {
+
+
+    const history=useHistory();
+    let auth=useAuth();
+
+
   const [sidebar, setSidebar] = useState(false)
 
   const showSidebar = () => setSidebar(!sidebar)
