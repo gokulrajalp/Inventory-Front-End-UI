@@ -1,6 +1,5 @@
-.container-fluid
-{
-    /* background-color: #21293D; */
+body{
+   
     background-image: url('../Images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;

@@ -64,10 +64,8 @@ const validationSchema=yup.object({
 
 
   return (
-    <div className="container-fluid  px-0 py-0">
-      <div className="row">
-        <div className="col-md-12 col-11 mx-auto">
-          <div className="row mt-3">
+    <div>
+      
           <h1 className="text-center text-white">Add Product</h1>  
 
 
@@ -114,8 +112,5 @@ const validationSchema=yup.object({
 
 
           </div>
-        </div>
-      </div>
-    </div>
   )
 }

@@ -7,7 +7,7 @@ export default function UpdateInventory() {
       
           <h1 className="text-center text-white">UpdateInventory</h1> 
 
-
+      
           <div class="container">
   
 
