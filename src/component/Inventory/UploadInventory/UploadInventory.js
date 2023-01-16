@@ -1,21 +1,47 @@
 import React from 'react'
 import NavBar from "../NavBar";
-// import Sidebar from "../Sidebar/Sidebar";
 
 export default function UpdateInventory() {
   return (
-    <div className="container-fluid  px-0 py-0">
-      {/* <NavBar /> */}
+    <div>
+      
+          <h1 className="text-center text-white">UpdateInventory</h1> 
 
-      <div className="row">
-        <div className="col-md-12 col-11 mx-auto">
-          <div className="row mt-3">
-          <h1 className="text-center text-white">UpdateInventory</h1>  
 
-            {/* <Sidebar /> */}
+          <div class="container">
+  
+
+
+
+          <table class="table table-bordered table-sm border-light table-responsive-sm">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Order_ID</th>
+      <th scope="col">Details</th>
+      <th scope="col">Address</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody class="text-white">
+    <tr>
+      <th scope="row">1</th>
+      <td>Fetch from database</td>
+      <td>Fetch from database</td>
+      <td>Fetch from database</td>
+      <td><button type="button" class="btn btn-success">Sent</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+
+
+          
           </div>
-        </div>
-      </div>
-    </div>
+        
   )
 }
