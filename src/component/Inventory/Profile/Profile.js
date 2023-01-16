@@ -4,17 +4,25 @@ import React from 'react'
 
 export default function Profile() {
   return (
-    <div className="container-fluid  px-0 py-0">
-      {/* <NavBar /> */}
-
-      <div className="row">
-        <div className="col-md-12 col-11 mx-auto">
-          <div className="row mt-3">
+    <div>
+   
             <h1 className="text-center text-white">Profile</h1>  
-            {/* <Sidebar /> */}
-          </div>
-        </div>
-      </div>
+      
+
+            <div class="card w-100">
+  <div class="card-header">
+    Inventory Team Management
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Managed By : Mr.James</h5>
+    <h5 class="card-title">Location  : Chennai</h5>
+  </div>
+</div>
+
+
+
+
+
     </div>
   )
 }
