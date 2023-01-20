@@ -57,6 +57,8 @@ const validationSchema=yup.object({
   product_category:yup.string().required('Product Category is Required'),
   number_of_products:yup.string().required('Please enter the Number of Products'),
   product_model_id:yup.string().required('Please enter the Product Model ID'),
+  date:yup.string().required('Please enter the Date'),
+  status:yup.string().required('Please enter the status of the product'),
   
 })
 
@@ -92,7 +94,17 @@ const validationSchema=yup.object({
                                 <ErrorMessage className='error' name="number_of_products"/>
 
                                 <Field className="Field" type="text" name="product_model_id" placeholder="product_model_id" ></Field>
-                                <ErrorMessage className='error' name="product_model_id"/> <br></br><br></br>
+                                <ErrorMessage className='error' name="product_model_id"/>
+                                
+                                
+                                
+                                <Field className="Field" type="date" name="date"></Field>
+                                <ErrorMessage className='error' name="date"/>
+                                
+                                
+                                
+                                <Field className="Field" name="status" placeholder="status" ></Field>
+                                <ErrorMessage className='error' name="status"/> <br></br><br></br>
                                  
                               
         
