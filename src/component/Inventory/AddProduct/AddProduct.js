@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from "../NavBar";
 import { ErrorMessage} from "formik"
 import * as yup from 'yup'
 import axios from "axios"
@@ -18,7 +17,9 @@ export default function Profile() {
     product_title:'',
     product_category:'',
     number_of_products:'',
-    product_model_id:''
+    product_model_id:'',
+    date:'',
+    status:''
 }
 
 
@@ -29,7 +30,7 @@ export default function Profile() {
   // values is coming with the help of formik when it is clicked on submit button with all the form values as object ..
   console.log("form values : ",values)
 
-  const { product_title, product_category, number_of_products, product_model_id} = values
+  const { product_title, product_category, number_of_products, product_model_id, date, status} = values
 
   // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
 
@@ -37,13 +38,11 @@ export default function Profile() {
       axios.post("http://localhost:8000/users/admin/register", values)
       .then( res => {
           alert(res.data.message)
-          // setLoginUser1(res.data.user)
-          // history.push("/login")
-          window.location="/login"
+         
+        
       })
 
-      //history.push("/") is used to redirect to homepage after successfull login of the user in login page
-
+     
       // res.data.message is coming from backend as response 
   } else {
       alert("invlid input")
@@ -103,7 +102,7 @@ const validationSchema=yup.object({
                                 
                                 
                                 
-                                <Field className="Field" name="status" placeholder="status" ></Field>
+                                <Field className="Field" name="status" placeholder="Status (Normal/Damaged)" ></Field>
                                 <ErrorMessage className='error' name="status"/> <br></br><br></br>
                                  
                               
