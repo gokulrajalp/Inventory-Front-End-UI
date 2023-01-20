@@ -7,9 +7,11 @@ export default function Profile() {
     <div>
    
             <h1 className="text-center text-white">Profile</h1>  
-      
 
-            <div class="card w-100">
+            
+      <div className='d-flex align-item-center justify-content-center'>
+
+            <div class="card w-50">
   <div class="card-header">
     Inventory Team Management
   </div>
@@ -19,7 +21,7 @@ export default function Profile() {
   </div>
 </div>
 
-
+</div>
 
 
 
