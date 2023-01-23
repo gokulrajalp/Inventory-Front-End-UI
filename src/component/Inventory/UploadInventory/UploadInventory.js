@@ -2,10 +2,25 @@ import React from 'react'
 import NavBar from "../NavBar";
 
 export default function UpdateInventory() {
+
+
+
+function sent(){
+  document.querySelector('#pending').classList.remove('d-none');
+  document.querySelector('#sent').classList.add('d-none');
+
+}
+
+
+
+
+
+
+
   return (
     <div>
       
-          <h1 className="text-center text-white">UpdateInventory</h1> 
+          <h1 className="text-center text-white">Update Inventory</h1> 
 
       
           <div class="container">
@@ -29,7 +44,7 @@ export default function UpdateInventory() {
       <td>Fetch from database</td>
       <td>Fetch from database</td>
       <td>Fetch from database</td>
-      <td><button type="button" class="btn btn-success">Sent</button></td>
+      <td><button type="button" class="btn btn-success" id="sent" onClick={sent}>Sent</button><button type="button" id="pending" class="btn btn-warning d-none">Pending to deliver...</button></td>
     </tr>
   </tbody>
 </table>

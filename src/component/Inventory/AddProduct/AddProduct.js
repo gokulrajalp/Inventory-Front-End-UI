@@ -19,7 +19,7 @@ export default function Profile() {
     number_of_products:'',
     product_model_id:'',
     date:'',
-    status:''
+    status:'' 
 }
 
 

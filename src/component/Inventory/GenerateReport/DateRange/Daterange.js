@@ -4,28 +4,28 @@ import axios from "axios"
 import * as yup from 'yup'
 
 
-export default function CheckAvailability() {
+export default function Daterange() {
 
 
 
   const initialValues={
 
-    product_model_id:''
+    from_date:'',
+    end_date:''
 }
 
 
 
 
 const handleSubmit=(values)=>{
-  document.querySelector('#details').classList.remove('d-none');
   // values is coming with the help of formik when it is clicked on submit button with all the form values as object ..
   console.log("form values : ",values)
 
-  const { product_model_id } = values
+  const { from_date, end_date } = values
 
   // axios is used to connect frontend with backend using api and user is send as data with the api from the frontend to backend 
 
-  if(product_model_id){
+  if(from_date && end_date){
       axios.post("http://localhost:8000/inventory/checkavailability", values)
       .then( res => {
           alert(res.data.message)
@@ -43,7 +43,8 @@ const handleSubmit=(values)=>{
 
 // validateSchema is a function which is maintained by yup library and is used to validate the input field along with returning the error message as well
 const validationSchema=yup.object({
-  product_model_id:yup.string().required('Please enter the Product Model ID')
+  from_date:yup.string().required('Please enter the Product Model ID'),
+  end_date:yup.string().required('Please enter the Product Model ID')
   
 })
 
@@ -58,7 +59,7 @@ const validationSchema=yup.object({
      
 
 
-          <h1 className="text-center text-white">Check Availability</h1>  
+          <h1 className="text-center text-dark">Date Range (Products)</h1>  
 
           <Formik initialValues={initialValues}
             validationSchema={validationSchema}
@@ -70,15 +71,19 @@ const validationSchema=yup.object({
             <Form className="d-flex align-item-center justify-content-center p-5">
                 <div className="register">
                        
-                                <Field className="Field" type="text" name="product_model_id" placeholder="product_model_id" ></Field>
-                                <ErrorMessage className='error' name="product_model_id"/>
+                                <Field className="Field" type="text" name="from_date" placeholder="From Date" ></Field>
+                                <ErrorMessage className='error' name="from_date"/>
+
+
+                                <Field className="Field" type="text" name="end_date" placeholder="End Date" ></Field>
+                                <ErrorMessage className='error' name="end_date"/>
                                 
                                 
                                 <br></br><br></br>
                               
                               
         
-                                <button className="button" type="submit"  >check</button>
+                                <button className="button" type="submit" >Generate</button>
                                 
 
 
@@ -91,22 +96,6 @@ const validationSchema=yup.object({
 
 
 
-
-<div className=' container d-flex align-item-center justify-content-center d-none' id='details'>
-        <div class="card w-50">
-  <div class="card-header">
-    Product Details
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Product Title: ' '</h5>
-    <h5 class="card-title">Product Category: ' '</h5>
-    <h5 class="card-title">Number of Products Available: ' '</h5>
-    <h5 class="card-title">Product Model ID: ' '</h5>
-    <h5 class="card-title">Status: ' '</h5>
-  </div>
-</div>
-
-</div>
 
 
           </div>
