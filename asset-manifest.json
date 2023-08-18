@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Inventory-Front-End-UI/static/css/main.b9a99371.css",
+    "main.js": "/Inventory-Front-End-UI/static/js/main.85aa165c.js",
+    "static/media/background.jpg": "/Inventory-Front-End-UI/static/media/background.f71d0363fcc08b6125aa.jpg",
+    "index.html": "/Inventory-Front-End-UI/index.html",
+    "main.b9a99371.css.map": "/Inventory-Front-End-UI/static/css/main.b9a99371.css.map",
+    "main.85aa165c.js.map": "/Inventory-Front-End-UI/static/js/main.85aa165c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b9a99371.css",
+    "static/js/main.85aa165c.js"
+  ]
+}
