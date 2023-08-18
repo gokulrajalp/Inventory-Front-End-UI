@@ -38,7 +38,7 @@ function App() {
               <Route exact path='/'>
                 
                 {
-                  <Login />
+                  <Inventory />
                 }
                 
               </Route>
